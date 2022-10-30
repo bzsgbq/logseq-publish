@@ -52,11 +52,11 @@ title:: mobile-data/Metrics Analysis
 			- ... ['209', '60', '247', '14', '27', '172', '192', '7', '38', '64']
 		- tsRetranCnt: TS 媒体文件分片请求的总重传包数
 			- ... ['9383', '377', '247', '780', '358', '5164', '8278', '863', '660', '17103']
-### Visual Quality
+- ### Visual Quality
 	- [[#red]]==`mediaRate` : (all) 所请求节目的码率（bps）==
 	- `displayResolution` : (partial)上报数据时刻的视频显示分辨率（宽\*高， 如 1200\*720)
 		- [[#green]]==displayResolution反而只有两种取值: '1280X720', '1920X1080'==
-### Video Property
+- ### Video Property
 	- `cpAppName` : 播放节目 App 包名
 	- `contentIdFromEpg` : (partial)[[#green]]==[必选]== [[#blue]]==[[epg]] 中的内容 id==
 	- [[#blue]]==`videoType` : 节目类型，分为直播、点播、回看等==
@@ -86,15 +86,15 @@ title:: mobile-data/Metrics Analysis
 	- `avgTimeRemain` : 本次上报周期内 播放器剩余可播放时间平 均值(单位:毫秒)
 	- `maxTimeRemain` : 本次上报周期内 播放器剩余可播放时间最 大值(单位:毫秒)
 	- `minTimeRemain` : 本次上报周期内 播放器剩余可播放时间最 小值(单位:毫秒)
-### Interactions Related
-id:: 81f4877b-92f1-42f2-9c06-dcf4770c4dd5
+- ### Interactions Related
+  id:: 81f4877b-92f1-42f2-9c06-dcf4770c4dd5
 	- [[#green]]==这里的seekCnt, seekTime具体是怎么计算的? 对于seekCnt, 用户常常会按多次<-或者->来实现一次seek, 这会被识别为多次seek并加到seekCnt中吗?  还有seekTime是什么? 是用户按住进度条的时间? 是用户最终的时间点距离seek目标时间点的时间?==
 	- `seekCnt` : 本次观看行为的两次上报时间之间的 seek 次数，如 61 的上报时间段为从开始观看节 目到上报时间点，63 的上报时间段为上次 最近的上报时间点（可能是 61 或者 62）到 本次上报时间点
 	- `seekTime` : 本次观看行为的两次上报时间之间的 seek 时长（单位：毫秒），如 61 的上报时间段为 从开始观看节目到上报时间点，63 的上报 时间段为上次最近的上报时间点（可能是 61 或者 62）到本次上报时间点
 	- `seekAllCnt` : 本次观看行为的从节目开始播放到上报时 刻的 seek 总次数
 	- `seekAllTime` : 本次观看行为的从节目开始播放到上报时刻的seek 总时长（单位：毫秒）
 	- `seekHistogram` : Seek 秒数直方图，具体算法见 BOOT 接口的 secondsHistogramOfSeek 字段，统计本周 期内节目的卡顿时长分布。
-### Network Related
+- ### Network Related
 	- [[#blue]]==`accessMethod` : 网络接入方式(“0”为 wifi, “1”为有线 （dhcp）, “2”为 PPPOE，“3”为 static 或者 manual，”4”为 IPOE，其他还有可能为空“”)== <-- ==wifi的话可能还要考虑frequency==
 	- `wirelessSignalStrength` : 无线信号强度(单位微伏db)，有线连接方式值为-9999
 	- `linkSpeed`: 无线热点的带宽，有线连接方式值为-1
@@ -103,21 +103,21 @@ id:: 81f4877b-92f1-42f2-9c06-dcf4770c4dd5
 	- `ccErrorCnt` : 本次上报周期内 CC (Continuity Counter Error, 传送流乱序次数)不连续错误数
 		- [[#green]]==只有6个数据: {'1777', '914', '67', '73', '65', '855'}==
 	- `multicastJoinDelay` : 从发出 IGMP Join 报文到收到第一个组播流 的时间，单位：毫秒
-### Device Related
+- ### Device Related
 	- `deviceResolution` : 上报数据时刻的屏幕显示分辨率（宽\*高， 如 1200\*720)
 		- [[#green]]==数据集中没有该项, 搜索resolution也搜不到它==
 	- `macadress` : 机顶盒有线 mac 地址
 	- `wifimacaddress` : 机顶盒无线 mac 地址
 	- `gatewayMac` : 网关 mac，即机顶盒上联设备的 mac 地址（包含家庭智能网关或路由器）
-### Region Related
+- ### Region Related
 	- `area` : 地区编号 (只有一个, 没有分析价值)
 	- `brasIp` : [[bras]]的IP编号信息
-### Ratings
+- ### Ratings
 	- `mos` : 本次观看行为的两次上报时间之间的 Mos 值，以逗号分隔，例如 1.2,5,4.0,1.8，根 据 Boot 返回值得时间间隔计算，默认计算 周期为 1 分钟。
 	- `sQuality` : 本次观看行为的两次上报时间之间的视频源质量值，上报方式同 mos,与 mos 值一一 对应
 	- `sInteraction` : 本次观看行为的两次上报时间之间的交互体验质量值，上报方式同 mos,与 mos 值一 一对应
 	- `sView` : 本次观看行为的两次上报时间之间的观看体验质量值，上报方式同 mos,与 mos 值一 一对应
-### Pipeline
+- ### Pipeline
 	- **1. 单维指标数据的分析**
 		- 视频分辨率的分布
 		- 有线接入情况下信号质量的分布范围
