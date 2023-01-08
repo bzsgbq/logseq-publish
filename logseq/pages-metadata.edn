@@ -13,10 +13,6 @@
  {:block/name "75f10afd-15dc-47f4-bf36-2bebdf8539e9",
   :block/created-at 1668927514406,
   :block/updated-at 1668927514406}
- {:block/name
-  "@buffer-aware virtual reality video streaming with personalized and private viewport prediction",
-  :block/created-at 1671357479743,
-  :block/updated-at 1671357479743}
  {:block/name "a",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
@@ -29,18 +25,9 @@
  {:block/name "c",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
- {:block/name "canceled",
-  :block/created-at 1665316307610,
-  :block/updated-at 1665316307610}
- {:block/name "cancelled",
-  :block/created-at 1665316307609,
-  :block/updated-at 1665316307609}
  {:block/name "card",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
- {:block/name "composition",
-  :block/created-at 1667803859197,
-  :block/updated-at 1667803859197}
  {:block/name "contents",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
@@ -71,6 +58,9 @@
  {:block/name "jan 1st, 2023",
   :block/created-at 1672572855390,
   :block/updated-at 1672578972372}
+ {:block/name "jan 8th, 2023",
+  :block/created-at 1673169630181,
+  :block/updated-at 1673175252394}
  {:block/name "later",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
@@ -95,18 +85,9 @@
  {:block/name "now",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
- {:block/name "oct 25th, 2022",
-  :block/created-at 1666664199878,
-  :block/updated-at 1666664199878}
  {:block/name "oct 27th, 2022",
   :block/created-at 1666876693455,
   :block/updated-at 1667135438303}
- {:block/name "oct 28th, 2022",
-  :block/created-at 1666922245447,
-  :block/updated-at 1666922245447}
- {:block/name "oct 29th, 2022",
-  :block/created-at 1667026652098,
-  :block/updated-at 1667026652098}
  {:block/name "oct 30th, 2022",
   :block/created-at 1667095072322,
   :block/updated-at 1667617747053}
