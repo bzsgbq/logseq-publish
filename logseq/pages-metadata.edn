@@ -13,6 +13,14 @@
  {:block/name "75f10afd-15dc-47f4-bf36-2bebdf8539e9",
   :block/created-at 1668927514406,
   :block/updated-at 1668927514406}
+ {:block/name
+  "@a unified framework for multi-modal federated learning",
+  :block/created-at 1699839744585,
+  :block/updated-at 1699839744585}
+ {:block/name
+  "@track: a new method from a re-examination of deep architectures for head motion prediction in 360 videos",
+  :block/created-at 1699839744584,
+  :block/updated-at 1699839744584}
  {:block/name "a",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
@@ -97,9 +105,6 @@
  {:block/name "mar 26th, 2023",
   :block/created-at 1679802457194,
   :block/updated-at 1679802468911}
- {:block/name "mar 27th, 2023",
-  :block/created-at 1679880848854,
-  :block/updated-at 1679880848854}
  {:block/name "mobile-data",
   :block/created-at 1665200505297,
   :block/updated-at 1665200505297}
@@ -109,6 +114,9 @@
  {:block/name "nov 13th, 2022",
   :block/created-at 1668322315357,
   :block/updated-at 1668343459532}
+ {:block/name "nov 13th, 2023",
+  :block/created-at 1699839746222,
+  :block/updated-at 1699841477570}
  {:block/name "nov 20th, 2022",
   :block/created-at 1668911381066,
   :block/updated-at 1668934912131}
