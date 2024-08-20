@@ -22,12 +22,43 @@
   :block/created-at 1699839744585,
   :block/updated-at 1699839744585}
  {:block/name
+  "@analysis and design of the google congestion control for web real-time communication (webrtc)",
+  :block/created-at 1724160176697,
+  :block/updated-at 1724160176697}
+ {:block/name
+  "@bola360: near-optimal view and bitrate adaptation for 360-degree video streaming",
+  :block/created-at 1724160146627,
+  :block/updated-at 1724160146627}
+ {:block/name
+  "@fovoptix: human vision-compatible video encoding and adaptive streaming in vr cloud gaming",
+  :block/created-at 1724160146627,
+  :block/updated-at 1724160146627}
+ {:block/name
+  "@low-latency live video streaming over a low-earth-orbit satellite network with dash",
+  :block/created-at 1724160146628,
+  :block/updated-at 1724160146628}
+ {:block/name
+  "@qv4: qoe-based viewpoint-aware v-pcc-encoded volumetric video streaming",
+  :block/created-at 1724160146627,
+  :block/updated-at 1724160146627}
+ {:block/name
+  "@timely and accurate bitrate switching in http adaptive streaming with date-driven i-frame prediction",
+  :block/created-at 1724160146570,
+  :block/updated-at 1724160146570}
+ {:block/name
   "@track: a new method from a re-examination of deep architectures for head motion prediction in 360 videos",
   :block/created-at 1699839744584,
   :block/updated-at 1699839744584}
+ {:block/name
+  "@vabis: video adaptation bitrate system for time-critical live streaming",
+  :block/created-at 1724160146569,
+  :block/updated-at 1724160146569}
  {:block/name "a",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
+ {:block/name "abrrulescollection",
+  :block/created-at 1724160146620,
+  :block/updated-at 1724160146620}
  {:block/name "apr 13th, 2024",
   :block/created-at 1712994342027,
   :block/updated-at 1712994519148}
@@ -37,6 +68,9 @@
  {:block/name "aug 14th, 2023",
   :block/created-at 1691995584513,
   :block/updated-at 1692001013054}
+ {:block/name "aug 20th, 2024",
+  :block/created-at 1724159234925,
+  :block/updated-at 1724159234925}
  {:block/name "b",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
@@ -55,9 +89,15 @@
  {:block/name "card",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
+ {:block/name "cmaf",
+  :block/created-at 1724160146622,
+  :block/updated-at 1724160146622}
  {:block/name "contents",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
+ {:block/name "cte",
+  :block/created-at 1724160146622,
+  :block/updated-at 1724160146622}
  {:block/name "dec 10th, 2023",
   :block/created-at 1702217429276,
   :block/updated-at 1702257737470}
@@ -118,9 +158,21 @@
  {:block/name "jan 8th, 2023",
   :block/created-at 1673169630181,
   :block/updated-at 1673175252394}
+ {:block/name "l2a",
+  :block/created-at 1724160146623,
+  :block/updated-at 1724160146623}
  {:block/name "later",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
+ {:block/name "lol+",
+  :block/created-at 1724160146623,
+  :block/updated-at 1724160146623}
+ {:block/name "low latency streaming",
+  :block/created-at 1724160146622,
+  :block/updated-at 1724160146622}
+ {:block/name "lstm",
+  :block/created-at 1724160146597,
+  :block/updated-at 1724160146597}
  {:block/name "mar 26th, 2023",
   :block/created-at 1679802457194,
   :block/updated-at 1679802468911}
@@ -170,11 +222,14 @@
   :block/created-at 1665316012964,
   :block/updated-at 1665316389100}
  {:block/name "quic",
-  :block/created-at 1713161004814,
-  :block/updated-at 1713161089935}
+  :block/created-at 1724160185722,
+  :block/updated-at 1724160185722}
  {:block/name "todo",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
+ {:block/name "transformer",
+  :block/created-at 1724160146585,
+  :block/updated-at 1724160146585}
  {:block/name "wait",
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
@@ -182,8 +237,8 @@
   :block/created-at 1665200141895,
   :block/updated-at 1665200141895}
  {:block/name "webrtc",
-  :block/created-at 1713161128317,
-  :block/updated-at 1713161129868}
+  :block/created-at 1724160176711,
+  :block/updated-at 1724160176711}
  {:block/name "下周计划",
   :block/created-at 1666877108309,
   :block/updated-at 1666877108309}
@@ -194,8 +249,8 @@
   :block/created-at 1666877087865,
   :block/updated-at 1666877087865}
  {:block/name "实习",
-  :block/created-at 1713160935662,
-  :block/updated-at 1713160939523}
+  :block/created-at 1724160146652,
+  :block/updated-at 1724160146652}
  {:block/name "本周完成",
   :block/created-at 1666877099340, 
   :block/updated-at 1666877099340}]

@@ -1,13 +1,14 @@
 - ## MyNotes
 	- 主要
-		- ((a225dd66-5bbd-4707-a741-3aa9d19d13f9))
-		- ((0b8cccfc-c7fd-46d9-8b3e-b4643c950222))
-		- ((ed1243fb-b092-4b32-8dfd-1d7b1e501b1b))
+		- ((6617478b-51d2-4971-bbb3-0e4a2c8290f2))
+		- ((66174a11-c31e-4a3c-83b2-9a0eb267c29d))
+		- ((6617881e-6475-4ca7-8e8a-a5f6b2fd941f))
 	- 其它
-		- ((aa0b70ee-c6a9-4cb7-a280-a2d13d5db966))
-		- ((b5b0484d-0378-443e-b427-2e963c04d382))
+		- ((6617e028-cc4a-4144-9a88-6a70f43cba92))
+		- ((6617e030-fbec-49cb-8676-a5a563efc522))
 -
 - [QUIC核心原理和握手过程_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1Mg411s7mP/?spm_id_from=333.337.search-card.all.click&vd_source=599fbcc1d46a99910a3f21226efa36a4)
+  collapsed:: true
 	- HTTP2.0 vs HTTP3.0
 	  collapsed:: true
 		- ![image.png](../assets/image_1712838851168_0.png){:width 400,:height 800}
@@ -15,7 +16,6 @@
 	  collapsed:: true
 		- ![image.png](../assets/image_1712839044430_0.png){:width 400,:height 800}
 	- 0-RTT
-	  id:: 035d85c2-29c9-479b-b0d3-d2206f09366c
 	  collapsed:: true
 		- 大概图示
 		  collapsed:: true
@@ -37,17 +37,16 @@
 				- ![image.png](../assets/image_1712840477363_0.png){:width 400,:height 800}
 				-
 	- 连接迁移
-	  id:: 60a28536-96cf-4b3c-b63f-0714bfcd2f67
 	  collapsed:: true
 		- TCP使用四元组标识一个连接, 一旦从WiFi切换到4G或者5G网络, IP地址发生变化, 就要重新建立连接
 		- QUIC包中有 Connection ID 字段, 可以唯一标识一个连接, 实现更丝滑的连接迁移
 	- 流量控制
-	  id:: aa0b70ee-c6a9-4cb7-a280-a2d13d5db966
+	  id:: 6617e028-cc4a-4144-9a88-6a70f43cba92
 	  collapsed:: true
 		- 在Client Hello数据包中, 会定义一些quic_transport_parameters, 用来进行流量控制
 			- ![image.png](../assets/image_1712840810742_0.png){:width 777}
 	- 重传
-	  id:: b5b0484d-0378-443e-b427-2e963c04d382
+	  id:: 6617e030-fbec-49cb-8676-a5a563efc522
 	  collapsed:: true
 		- 通过ACK帧的内容, 告知对方什么收到了, 什么需要重传
 	-
@@ -56,7 +55,7 @@
 	- ## What is the QUIC protocol?
 		- 基于UDP
 			- 0-RTT (更快的连接建立)
-			  id:: a225dd66-5bbd-4707-a741-3aa9d19d13f9
+			  id:: 6617478b-51d2-4971-bbb3-0e4a2c8290f2
 			  collapsed:: true
 				- QUIC最开始发送的两个数据包Client Hello和Server Hello中, 会同时携带==连接信息==和==TLS信息==, 所以仅需要两次握手, 1-RTT就可以完成==连接建立==和==密钥协商==, 之后就可以发送加密后的实际数据
 				- 之后再连接的时候，应用数据包可以和 QUIC 握手信息（==连接信息== + ==TLS 信息==）一起发送，达到 0-RTT 的效果。
@@ -87,8 +86,7 @@
 			- By examining the logical path that data must flow down the OSI model, developers were able to identify some of these inefficiencies and optimize QUIC to do one thing really well. And the timing on this couldn’t be better (or rather, what’s taken so long to define this as a standard!) as the amount of web traffic is ever-increasing.
 			- The adoption of QUIC has been rising. At the time of writing this post (late 2021), only about 5.9% of websites support QUIC. However, some big names have really gotten behind it. The majority of Google’s web traffic is now QUIC. Facebook has also jumped in, claiming that over 75% of their traffic is along the new protocol.
 		- **multiplexing** (多路复用) (解决队头阻塞问题)
-		  id:: 0b8cccfc-c7fd-46d9-8b3e-b4643c950222
-		  collapsed:: true
+		  id:: 66174a11-c31e-4a3c-83b2-9a0eb267c29d
 			- 虽然HTTP/2中的多路复用允许多个流在一个TCP连接上传输, 但是由于TCP需要顺序确认, 所以依然是一个串行的过程, 其中一个流中出现丢包, 所有流都会被阻塞 (Stream 可以认为就是一条 HTTP 请求)
 			- QUIC中的多路复用, 由于它所基于UDP不会关心丢包问题, 所以各个流可以独立传输, 某个流发生丢包，只会影响该流，而不会影响其他流。
 				- QUIC 中每个数据包都有一个序号唯一标识, 可以据此得到哪些数据包需要重传
@@ -97,7 +95,7 @@
 			- ==QUIC resolves this issue by enabling each lane to keep running independently.== UDP is indifferent to the lost packets. The protocol has defined the retransmission parameters, and enables the retransmission of data in just one stream, as opposed to blocking all streams. So there’s no slowing down in other lanes.
 			- ![image.png](../assets/image_1712802221619_0.png){:width 400,:height 800}
 		- **connection migration** (连接迁移)
-		  id:: ed1243fb-b092-4b32-8dfd-1d7b1e501b1b
+		  id:: 6617881e-6475-4ca7-8e8a-a5f6b2fd941f
 		  collapsed:: true
 			- HTTP/2 基于 TCP, 而TCP是通过四元组（源 IP、源端口、目的 IP、目的端口）标识一个连接的
 			- 那么当移动设备的网络从 4G 切换到 WiFi 时，意味着 IP 地址变化了，那么就必须要断开连接，然后重新建立连接，而建立连接的过程包含
@@ -107,6 +105,7 @@
 			- 而 QUIC 协议没有用四元组的方式来“绑定”连接，而是通过**连接 ID** 来标记通信的两个端点，客户端和服务器可以各自选择一组 ID 来标记自己，因此即使移动设备的网络变化后，导致 IP 地址变化了，只要仍保有连接信息和TLS信息（比如连接 ID、TLS 密钥等），就可以“无缝”地复用原连接，消除重连的成本，没有丝毫卡顿感，达到了**连接迁移**的功能。
 			- There are a few other benefits, but the last key one I’ll touch on is the portability of a session between connections, or connection migration. Portable devices are ubiquitous now, so it’s quite often that you’ll start a session on your mobile device on your home Wi-Fi network, and then head out into the world and the phone will switch over to the cellular 4G or 5G network. QUIC has been designed to handle these changes in a client IP address, leveraging a unique connection ID for that session.
 -
-## Some Questions about QUIC
+- ## Some Questions about QUIC
+  collapsed:: true
 	- ### QUIC 协议为什么选择 UDP
 		- 那么可能就会有人考虑到去修改 TCP 协议，其实这已经是一件不可能完成的任务了。因为 TCP 存在的时间实在太长，已经充斥在各种设备中，并且这个协议是由操作系统实现的，更新起来不大现实。

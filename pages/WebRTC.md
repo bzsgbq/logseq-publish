@@ -1,10 +1,10 @@
 - ## MyNotes
 	- WebRTC 是什么?
-	  collapsed:: true
 		- WebRTC的全称是网页实时通信
 		  collapsed:: true
 			- 它通过简单的API, 为浏览器, 移动平台以及物联网设备提供高质量的实时通信功能
 		- 核心点是, 两个浏览器之间点对点通信, 即在真正传输音视频数据时不需要中间服务器, 从而实现低延迟
+		  collapsed:: true
 			- 首先要建立点对点连接 (`RTCPeerConnection`)
 			  collapsed:: true
 				- 通过信令服务器进行媒体协商和网络协商
@@ -62,7 +62,6 @@
 	  collapsed:: true
 		- ![image.png](../assets/image_1711447521353_0.png){:width 666}
 	- 算法
-	  collapsed:: true
 		- lgt
 		  collapsed:: true
 			- GCC
@@ -116,7 +115,7 @@
 				- WebRTC在RTT很大时候会开启FEC来进行丢包补偿。主要的思想就是通过==增加冗余数据来让接收端能对丢失的数据包进行恢复。==
 				- 发送端对原始数据进行 FEC 编码，生成冗余奇偶校验数据包，原始数据包和冗余数据包的数量比例是固定的。接收端接收到 FEC 数据块后，通过冗余数据包和原始数据包来恢复出丢失或者出错的数据包。FEC 编解码算法目前比较成熟的为：里得所罗门算法、Raptor 算法和 Tornado 算法。
 		- 带宽探测
-			- 带宽估计需要带宽侦测
+			- ~~带宽估计需要带宽侦测~~
 			  collapsed:: true
 				- 在WebRTC中，带宽侦测是通过周期性地发送数据包并测量其到达时间来完成的。WebRTC中的带宽侦测通常涉及以下步骤：
 					- 发送数据包: WebRTC会周期性地向对方发送一些数据包，通常称为“probe packets”。这些数据包的大小和发送间隔可以根据应用程序需求进行调整。
@@ -131,7 +130,7 @@
 					- TWCC机制引入了一种新的拥塞控制机制，使用了一种名为“Feedback PacketInformation”（FPI）的机制来收集数据。通过在Feedback包中包含FPI信息，TWCC可以更准确地估计网络的拥塞程度，并及时地调整发送速率，以避免网络拥塞。
 					- TWCC机制的另一个优势是可以对每个视频流进行独立的拥塞控制。这样，在多路视频通信的情况下，TWCC可以更准确地调整每个视频流的发送速率，以适应不同的网络环境，从而提高通信质量和稳定性。
 					- 总之，WebRTC的TWCC机制相比传统的REMB机制，具有更好的性能和鲁棒性。但需要注意的是，TWCC机制在一些老旧的网络环境下可能会遇到兼容性问题，因此在实际应用中需要进行充分的测试和评估。
-			- webrtc带宽预测中的Probe（探测）模块
+			- ~~webrtc带宽预测中的Probe（探测）模块~~
 			  collapsed:: true
 				- 为什么需要带宽探测
 				  collapsed:: true
@@ -147,28 +146,26 @@
 					- Probe的原理简单说起来就是这样的：发送端以一定的速度发送数据包，同时记录这些数据包的发送时间、序列号（全局唯一）、探测组的id.
 					- 接收端每过一段时间（50-150ms）会反馈数据包的到达时间，就像这样：
 			- webrtc模块之带宽预测Prober_bitrateprober__getnextprobetime-CSDN博客
-			  collapsed:: true
 				- 引入prober的目的
 					- 因为GCC算法对带宽的衰减比较敏感，而对于带宽的增加反应缓慢
-					  collapsed:: true
 						- 比如说带宽开始为10mbps，突然降8mbps，gcc会很快做出反应，网络处于过载状态，而如果带宽开始为10mbps，突然升到50mbps，由于gcc处理带宽上升时，远离收敛时是乘性增加，逼近收敛时是加性增加，时间会比较长，可能要1-2秒，会影响数据发送。此时如果使用prober，就会很快的从10mbps，上升到50mbps，可能只需要500ms左右，prober的作用显而易见。
 					- 从GCC算法本身来说，在初始化时或者网络带宽提升时, 会按照乘性增大或者加性增大, 慢慢提升到目标码率，过程较慢. 所以我们可以在发送端进行带宽探测, 快速探测链路容量上限
 				- 什么时候开启prober探测
-				  collapsed:: true
 					- 最开始时
 					- 状态从Hold转化为Incr.时
 					- 周期性判断
 					- 乘性探测
 						- 为了快速的探测到实际带宽的大致值，使用乘性探测。gcc会根据探测码率、基于延时的码率、基于丢包的码率和基于当前的码率等综合输出其中最低的码率作为pacer或编码器的发送码率target_bitrate，此时如果探测码率大于target_bitrate的70%，则继续开启探测。举个例子，假设起始速度设置为 500kbps，那么探测速度就设置为 1Mbps，如果探测结果prober_bitrate大于1Mbps* 0.7 =700kbps ，继续向上探测，探测目标重新设置为 2Mbps，如果第二次探测结果prober_bitrate大于 2Mbps *0.7=1.4Mbps，继续向上探测，探测目标重新设置为 4Mbps……直到某一个探测结果prober_bitrate小于所设置的探测目标乘以0.7，那么就判定链路带宽应该在此次探测结果附近。
 				- 原理 \\\\\\
-					- 设定 (ProbeClusterConfig) (ProbeCluster就是包组)
+					- 设定 (ProbeClusterConfig) (ProbeCluster就是探测包组)
 						- at_time: 何时进行探测
 						- target_data_rate (目标码率)
 						- target_duration (探测时间)
 						- target_probe_count (探测包数)
 						- id (探测包组id)
+						- 其它
+							- 程序启动后便开启prober探测，首先确定起始码率，webrtc设置为300kbps，探测目标设置两个探测阶段，为三倍起始码率900kbps，第二阶段探测码率为2倍第一阶段探测码率，为1.8Mbps。
 					- 将ProbeClusterConfig传给pacer, pacer会定时生成探测包发送事件
-					  collapsed:: true
 						- 将ProbeClusterConfig, 作为平滑发送模块pacer中BitrateProber的探测配置，这样的话在探测激活状态下，每发送一个数据包也都是探测包，直到发送的包字节数超过本次探测的最小应发送的字节，本次探测结束。
 						- `BitrateProber::CreateProbeCluster`
 							- time_created_ms = now_ms (创建时间)
@@ -184,7 +181,6 @@
 					- receiver会识别出探测包, 并进行计算:
 						- ![image.png](../assets/image_1713095413528_0.png){:width 400,:height 800}
 		- 拥塞控制
-		  collapsed:: true
 			- 参考
 			  collapsed:: true
 				- [[@Analysis and design of the google congestion control for web real-time communication (WebRTC)]]
@@ -205,11 +201,9 @@
 				- 利用延迟梯度和丢包率估计网络可用带宽, 并根据可用带宽控制发送速率. 因此GCC包含基于延迟的算法和基于丢包的算法
 					- 基于延迟
 						- **数据收集**: [[$red]]==包组延时评估 (inter arrival)==
-						  collapsed:: true
 							- 计算相邻包组 "到达时间的差值" 和 "发送时间的差值"
 							- 使用数据包分组为单位计算延迟可以避免==突发数据==对于带宽估计准确性的影响
 						- **数据预处理**: (计算延迟梯度) [[$red]]==到达时间滤波器 (arrival-time filter)==
-						  collapsed:: true
 							- 滤波平滑: 使用到达时间差值减去发送时间差值, 得到传输延迟, 并通过卡尔曼滤波器做平滑
 							- 使用线性回归进行延迟梯度预测 (即通过最小二乘法计算直线斜率, 斜率就是trend)
 						- [[$red]]==过载检测器 (over-use detector)==
@@ -223,28 +217,24 @@
 								- 当延迟梯度增大时，动态阈值会以一个更慢的速度增大；
 								- 相对而言， 阈值的减小速度要小于增大速度。
 							- 动态threshold的具体计算方式
-							  collapsed:: true
 								- ![image.png](../assets/image_1713084941219_0.png){:width 666}
 								-
 							- 为什么需要动态threshold?
-							  collapsed:: true
-								- 【Gcc-analysis】给出了两个理由，不过第一个理由貌似用自适应阈值也很难解决，应该采用丢包率来评估带宽，主要应该还是第二个理由。第二个问题应该是GCC和BBR拥塞控制算法一个核心要解决的问题。TCP的拥塞控制算法主要依据是丢包重传，而当网络出现丢包往往是中间路由器buffer被填满的时候，此时网络传输延时比较大。而像GCC和BBR这种基于延时来判断网络拥塞的算法，期望达到的效果是在延时最低而网络吞吐量达到最大，很难竞争过TCP的这种流氓算法，如果一味避让最终必然会被饿死，所以GCC在设计时，在和TCP竞争时会适当提高阈值。
+								- 【Gcc-analysis】给出了两个理由，不过第一个理由貌似用自适应阈值也很难解决，应该采用丢包率来评估带宽，主要应该还是第二个理由。第二个问题应该是GCC和BBR拥塞控制算法一个核心要解决的问题。TCP的拥塞控制算法主要依据是丢包重传，而当网络出现丢包往往是中间路由器buffer被填满的时候，此时网络传输延时比较大。而像GCC和BBR这种基于延时来判断网络拥塞的算法，期望达到的效果是在延时最低而网络吞吐量达到最大，很难竞争过TCP的这种流氓算法，如果一味避让最终必然会被饿死，所以GCC在设计时，在和TCP竞争时会适当提高阈值。(其实就是TCP流量在把路由器队列占满之后才会进行拥塞控制, 如果不采用动态阈值, 而是设定成一个较小的值, 那算法就会始终判断成过载, 去降到最低码率)
 								  collapsed:: true
 									- ![image.png](../assets/image_1713087326532_0.png){:width 400,:height 800}
 						- [[$red]]==码率控制器 (AIMD)==
-						  collapsed:: true
 							- 根据速率控制状态机，按照==和式增加、积式减少==的原则估算出当前的网络速率
 							- ![image.png](../assets/image_1713082947459_0.png){:width 400,:height 800}
 							- 什么情况下, 会受到什么信号, 进入什么状态
 								- 当网络拥塞时，收到 overuse 信号，说明网络拥塞很严重，状态机进入Decr状态，降低发送码率。
-								- 当网络中排队的数据包被快速释放时，收到underuse信号，状态机进入 Hold状态，保持码率，继续排空。
+								- 当路由器队列中的数据包被快速释放时，收到underuse信号，状态机进入 Hold状态，保持码率，继续排空。
 								- 当网络平稳时，收到normal信号，状态机进入 Incr状态，开始探测是否可以增加发送码率。
 							- ![image.png](../assets/image_1713083065484_0.png){:width 400,:height 800}
 							- 更详细
-								- 当前是Incr 状态，如果 "吞吐量 (Rг)" 和 "链路容量"（历史吞吐量的指数平滑）相差较大，则对当前码率（上次更新的码率）使用乘性增加；如果相差较小，则使用加性增加。
+								- 当前是Incr 状态，如果 "吞吐量 (Rг)" 和 "链路容量"（历史吞吐量的指数平滑）相差较大，则对当前码率（上次更新的码率）使用乘性增加 (1.05)；如果相差较小，则使用加性增加。
 								- 当前是Decr状态，直接将 "当前吞吐量 x 0.85" 作为新码率，如果该码率可能仍大于上一个调整后的码率，则使用 "链路容量 x 0.85" 作为新码率。
 					- 基于丢包
-					  collapsed:: true
 						- 根据丢包率判断网络拥塞情况
 							- 丢包率很大：网络拥塞状况严重, 需要减小码率
 							- 丢包率很小或为0：网络状态良好，可以适当增大码率
@@ -396,6 +386,7 @@
 			  ```
 		-
 	- [Data channels  |  WebRTC](https://webrtc.org/getting-started/data-channels)
+	  id:: 66154b5b-efe5-48c4-8c9c-9024d3631841
 	  collapsed:: true
 		- The WebRTC standard also covers an API for sending arbitrary (任意的) data over a  `RTCPeerConnection` . This is done by calling  `createDataChannel()`  on a  `RTCPeerConnection`  object, which returns a  `RTCDataChannel`  object.
 		- ```js
